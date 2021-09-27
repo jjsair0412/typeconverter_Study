@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <!-- {{}}괄호가 두번 닫히는것은 컨버터가 적용되는것이고, {} 한번만 중괄호를 닫아주면 컨버터가 적용되지 않는다. -->
+    <li>${number}: <span th:text="${number}"></span></li> <!-- 그냥 숫자 출력 -->
+    <li>${{number}}: <span th:text="${{number}}"></span></li> <!-- {} 두번닫힘 . 숫자를 문자로 바꿔주는 컨버터 실행 -->
+    <li>${ipPort}: <span th:text="${ipPort}"></span></li> <!--그냥 객체 toString되는 결과 출력 -->
+    <li>${{ipPort}}: <span th:text="${{ipPort}}"></span></li> <!-- {} 두번닫힘 . 객체를 String으로 바꾸는 컨버터 실행 -->
+
+    <!-- 결과
+    ${number}: 10000
+    ${{number}}: 10000
+    ${ipPort}: hello.typeconverter.type.IpPort@59cb0946
+    ${{ipPort}}: 127.0.0.1:8080
+    -->
+</ul>
+</body>
+</html>
